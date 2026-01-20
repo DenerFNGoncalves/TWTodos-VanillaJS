@@ -1,5 +1,7 @@
 # TW Todos - VanillaJS - AI Course
 
+<a href=" https://denerfngoncalves.github.io/TWTodos-VanillaJS/" target="_blank" rel="noopener">Index TODO</a>
+
 ## Overview
 This project is a simple web application that demonstrates the basic structure of an HTML page, along with linked CSS for styling and JavaScript for interactivity.
 
