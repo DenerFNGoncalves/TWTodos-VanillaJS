@@ -1,4 +1,4 @@
-# My HTML Project
+# TW Todos - VanillaJS - AI Course
 
 ## Overview
 This project is a simple web application that demonstrates the basic structure of an HTML page, along with linked CSS for styling and JavaScript for interactivity.
