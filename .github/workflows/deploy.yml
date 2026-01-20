@@ -2,6 +2,7 @@
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,6 +12,6 @@ jobs:
       - name: Deploy src/ to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: src
+          branch: gh-pages        # branch de destino
+          folder: src             # publica o conteúdo de src/ no root de gh-pages
           token: ${{ secrets.GITHUB_TOKEN }}
