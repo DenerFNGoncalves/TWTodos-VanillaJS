@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TW Todos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="#">TW Todos</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <!-- info button: opens storage popup (force, shows checkbox) -->
+          <li class="nav-item ms-2">
+            <button id="storageInfoBtn" class="btn btn-sm btn-outline-light" type="button" title="Storage info" aria-label="Storage info">
+              <!-- info SVG -->
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 4.5a.75.75 0 1 1 0 1.5A.75.75 0 0 1 8 5.5zM7.25 8.5h1.5v4h-1.5v-4z"/>
+              </svg>
+            </button>
+          </li>
+
+          <!-- language dropdown placed at the right -->
+          <li class="nav-item dropdown ms-3">
+            <button id="langToggle" class="btn btn-sm btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span id="currentLangFlag" class="flag-icon">🇺🇸</span> <span id="currentLangLabel">English</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langToggle">
+              <li><button class="dropdown-item lang-select" data-lang="en" type="button"></button></li>
+              <li><button class="dropdown-item lang-select" data-lang="es" type="button"></button></li>
+              <li><button class="dropdown-item lang-select" data-lang="pt" type="button"></button></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <div class="row mb-4">
+      <div class="col-12 col-md-10 mx-auto">
+        <form id="todoForm" class="d-flex gap-2 justify-content-center align-items-center" novalidate>
+          <input id="todoInput" class="form-control" type="text" placeholder="New todo (min 3 chars, start with capital)" aria-label="New todo">
+          <button id="addBtn" class="btn btn-success" type="submit">Add</button>
+          <div class="invalid-feedback" id="todoFeedback">Todo must be at least 3 chars and start with a capital letter.</div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12 d-flex justify-content-center">
+        <div id="totalCount" class="card text-center px-3 py-2 no-interact" aria-hidden="true">Total: 0</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div id="todoList" class="todo-grid" aria-live="polite"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Storage info modal -->
+  <div class="modal fade" id="storageModal" tabindex="-1" aria-labelledby="storageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="storageModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex gap-3 align-items-start">
+          <div class="note-icon" aria-hidden="true">
+            <!-- simple note SVG -->
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="18" rx="2" stroke="#0d6efd" stroke-width="1.2" fill="#e9f2ff"></rect>
+              <path d="M7 8h10M7 12h6" stroke="#0d6efd" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div class="flex-fill">
+            <p id="storageModalMsg" class="mb-2"></p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="dontShowPopup">
+              <label class="form-check-label" for="dontShowPopup" id="dontShowPopupLabel"></label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button id="storageModalOk" type="button" class="btn btn-primary" data-bs-dismiss="modal"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

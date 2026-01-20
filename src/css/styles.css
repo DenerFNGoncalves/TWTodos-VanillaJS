@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* header removed — using Bootstrap navbar */
+header {
+    /* removed: navbar handled by Bootstrap */
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+
+/* minor complement to Bootstrap */
+.lead {
+    color: #333;
+}
+
+/* center total card and make it non-interactive */
+.no-interact {
+    pointer-events: none;
+    user-select: none;
+    min-width: 140px;
+}
+
+/* Todo app styles: 5 columns grid, centered */
+.todo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+    padding: 0 0.5rem;
+}
+
+/* sharp cards */
+.todo-card {
+    border-radius: 0;
+    border: 1px solid #dee2e6;
+    background: #fff;
+    box-shadow: none;
+    min-height: 140px;
+    overflow: visible;
+    padding-top: 2.2rem; /* space for actions */
+}
+
+/* actions area (top-right of card) */
+.card-actions {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    left: auto;
+    display: flex;
+    justify-content: flex-end; /* keep icons at right */
+    gap: 0.5rem;
+    z-index: 2;
+}
+
+/* buttons inside actions */
+.card-actions .btn {
+    padding: 0.25rem 0.35rem;
+    line-height: 1;
+}
+
+/* drag handle cursor */
+.drag-handle {
+    cursor: grab;
+}
+.drag-handle.dragging-handle {
+    cursor: grabbing;
+}
+
+/* drag states target cards */
+.todo-card.dragging {
+    opacity: 0.6;
+}
+.todo-card.drag-over {
+    outline: 2px dashed #0d6efd;
+}
+
+/* text inside card */
+.todo-card .todo-text {
+    user-select: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* responsive: collapse to fewer columns on small screens */
+@media (max-width: 1000px) {
+    .todo-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 700px) {
+    .todo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 420px) {
+    .todo-grid { grid-template-columns: repeat(1, 1fr); }
+}
+
+/* small helper for language toggle */
+#langToggle { font-weight: 600; }
+#currentLangFlag { margin-right: 6px; }
+
+/* flag small svg styling */
+.flag-svg, .flag-icon { vertical-align: middle; margin-right: 6px; display: inline-block; }
+
+/* make lang button visually right-aligned and compact */
+.navbar .dropdown .btn { display: inline-flex; align-items: center; gap: .4rem; }
+
+/* modal note icon spacing */
+.note-icon { flex: 0 0 36px; }
